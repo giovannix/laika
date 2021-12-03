@@ -61,7 +61,7 @@ def parse_dcbs(file_name, SUPPORTED_CONSTELLATIONS):
   dcbs_dict = {}
   for line in contents:
     if not data_started:
-      if line[1:4] == 'DSB':
+      if line[1:4] == 'DSB' or line[1:4] == 'DCB':
         data_started = True
       else:
         continue
@@ -72,6 +72,8 @@ def parse_dcbs(file_name, SUPPORTED_CONSTELLATIONS):
     if get_constellation(prn) not in SUPPORTED_CONSTELLATIONS:
       continue
     dcb_type = line_components[3] + '_' + line_components[4]
+    if line[1:4] == 'DCB':
+      line_components[5] = '20'+line_components[5]
     epoch = GPSTime.from_datetime(datetime.strptime(line_components[5], '%Y:%j:%f')) + 12*SECS_IN_HR
     if prn not in dcbs_dict:
       dcbs_dict[prn] = {}
