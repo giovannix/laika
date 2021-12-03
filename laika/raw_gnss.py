@@ -3,7 +3,7 @@ import scipy.optimize as opt
 import numpy as np
 import datetime
 from . import constants
-from .coordinates import LocalCoord
+from .lib.coordinates import LocalCoord
 from .gps_time import GPSTime
 from .helpers import rinex3_obs_from_rinex2_obs, get_nmea_id_from_prn, get_prn_from_nmea_id, get_constellation
 
