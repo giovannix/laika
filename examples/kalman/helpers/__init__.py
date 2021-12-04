@@ -4,9 +4,10 @@ from bisect import bisect
 from tqdm import tqdm
 from cffi import FFI
 
-TEMPLATE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'templates'))
-GENERATED_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'generated'))
-
+#TEMPLATE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'templates'))
+#GENERATED_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'generated'))
+TEMPLATE_DIR = os.path.dirname('/content/laika/kalman/templates/')
+GENERATED_DIR = os.path.dirname('/content/laika/kalman/generated/')
 
 def write_code(name, code, header):
   if not os.path.exists(GENERATED_DIR):
