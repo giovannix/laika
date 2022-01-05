@@ -306,7 +306,8 @@ def parse_sp3_orbits(file_names, SUPPORTED_CONSTELLATIONS):
   for prn in data:
     # TODO Handle this properly
     # Currently don't even bother with satellites that have unhealthy times
-    if (np.array(data[prn])[:,4] > .99).any():
+    tdata = np.array(data[prn])
+    if tdata.size == 0 or (tdata[:,4] > .99).any():
       continue
     for i in range(len(data[prn]) - deg):
       times, x, y, z, clock = [],[],[],[],[]
