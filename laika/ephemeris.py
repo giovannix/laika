@@ -298,7 +298,7 @@ def parse_sp3_orbits(file_names, SUPPORTED_CONSTELLATIONS):
                     1e3*float(line[18:32]),
                     1e3*float(line[32:46]),
                     1e-6*float(line[46:60])]
-          if (np.array(parsed[1:]) != 0).all() and not parsed[4] > .99: # Bad or absent clock values are to be set to _999999.999999. Remove them.
+          if (np.array(parsed[1:]) != 0).all():
             data[prn].append(parsed)
     f.close()
   deg = 16
