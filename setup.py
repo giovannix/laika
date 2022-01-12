@@ -21,7 +21,7 @@ setup(
     'scipy',
     'pycurl',
     'tqdm',
-    'hatanaka'
+    'hatanaka == 2.4.0'
   ],
   ext_modules=[],
   description="GNSS library for use with the comma.ai ecosystem",
